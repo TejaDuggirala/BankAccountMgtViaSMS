@@ -42,8 +42,6 @@ public class SMSHandlerImpl implements SMSHandler {
 	 */
 	@Override
 	public String handleSmsRequest(String smsContent, String senderDeviceId) {
-		
-		
 
 		if (!Arrays.stream(allCmds.split(",")).parallel().anyMatch(smsContent::contains)) {
 			throw new BankAccountMgtException(ErrorMessage.BANK_INVALID_COMMAND, smsContent,
