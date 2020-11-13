@@ -14,6 +14,7 @@ This API will send back success or failure of the request along with the total a
 Develop API to manage ‘BALANCE’ feature.
 This API will send back success or failure of the request along with current balance of the user.
 
+# Code commit and branching strategy:
 All the above versions are managed, developed and released using Git version control by following Git flow. 
 Git flow is designed to effectively manage multiple versions of the application, their releases, promote hot fixes and their merges to develop branches. We create feature branches to develop each of the above features. After each feature development, we merge this feature branch to develop. When it is time for release, we branch out a release branch from develop and name it based on the year/month/week. For example, our release branch name could be 20.10.400, 20 for year, 10 for October month and 400 for 4th week. After the release branch deployed in production, we merge this release branch to master branch, which will have all the commits from inception of the project to current deployed branch in production. If there any bugs found in prod, we create hot fix branch from our release branch and promote the fix to that branch and merge the branch to release. After the deployment of the hotfix, we perform merge to master and develop branches to get our hotfix into current develop branch and also master.
 
