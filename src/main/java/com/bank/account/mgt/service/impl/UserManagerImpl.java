@@ -70,9 +70,12 @@ public class UserManagerImpl implements UserManager {
      */
 	@Override
 	public String getUserNameForDeviceId(String deviceId) {
-		UserDbEntity userDBEntity = userDao.findByDeviceId(deviceId).orElseThrow(() -> new BankAccountMgtException(ErrorMessage.BANK_INVALID_DEVICEID, deviceId,
-				ErrorMessage.BANK_INVALID_DEVICEID_RESOURCETYPE));
-		return userDBEntity.getUserName();
+		if(deviceId!=null) {
+			UserDbEntity userDBEntity = userDao.findByDeviceId(deviceId).orElseThrow(() -> new BankAccountMgtException(ErrorMessage.BANK_INVALID_DEVICEID, deviceId,
+					ErrorMessage.BANK_INVALID_DEVICEID_RESOURCETYPE));
+			return userDBEntity.getUserName();
+		}
+		return deviceId;
 	}
 	
 
