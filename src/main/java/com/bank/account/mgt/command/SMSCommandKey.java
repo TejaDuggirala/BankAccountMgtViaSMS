@@ -21,14 +21,17 @@ public class SMSCommandKey {
 
 	private SendCommand sendCommand;
 	private TotalSentCommand totalSentCommand;
+	private BalanceCommand balanceCommand;
   
 
     @Autowired
-    public SMSCommandKey(SendCommand sendCommand, TotalSentCommand totalSentCommand) {
+    public SMSCommandKey(SendCommand sendCommand, BalanceCommand balanceCommand, TotalSentCommand totalSentCommand) {
     	this.sendCommand=sendCommand;
     	this.totalSentCommand=totalSentCommand;
+    	this.balanceCommand = balanceCommand;
     	commandMap.put(BankConstants.SEND, this.sendCommand);
     	commandMap.put(BankConstants.TOTAL_SENT, this.totalSentCommand);
+    	commandMap.put(BankConstants.BALANCE, this.balanceCommand);
     }
 	
 	
