@@ -44,8 +44,11 @@ public class SendCommand implements ICommand {
 	public UserResource executeCommand(final UserResource userRes) {
 
 		BankAccountMgtUtil.populateTransctionDetails(userRes, allCmds);
-		userRes.getReceiver().stream().forEach(recipient -> transferManager.sendMoney(userRes.getUserName(), recipient,
-				userRes.getTransferredAmount()));
+		if(userRes.getReceiver()!=null) {
+			userRes.getReceiver().stream().forEach(recipient -> transferManager.sendMoney(userRes.getUserName(), recipient,
+					userRes.getTransferredAmount()));
+		}
+		
 
 		userRes.setResponse(BankConstants.SEND_RESPONSE_OK);
 		

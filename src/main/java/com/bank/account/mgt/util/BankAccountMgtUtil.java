@@ -36,7 +36,7 @@ public class BankAccountMgtUtil {
 		
 		for(String s: userResource.getUserCmd()) {
 			boolean isCmd = Arrays.stream(allCmds.split(",")).parallel().anyMatch(s::contains);
-	       	 if(!isCmd && s.chars().allMatch(Character :: isDigit)) {
+	       	 if(!isCmd && s.chars()!=null && s.chars().allMatch(Character :: isDigit)) {
 	       		userResource.setTransferredAmount(new BigDecimal(s));
 	       	 } else if(!isCmd) {
 	       		 if(userResource.getReceiver() == null) {
