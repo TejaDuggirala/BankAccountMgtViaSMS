@@ -20,13 +20,15 @@ public class SMSCommandKey {
 	private Map<String, ICommand> commandMap = new HashMap<>();
 
 	private SendCommand sendCommand;
+	private TotalSentCommand totalSentCommand;
   
 
     @Autowired
-    public SMSCommandKey(SendCommand sendCommand) {
+    public SMSCommandKey(SendCommand sendCommand, TotalSentCommand totalSentCommand) {
     	this.sendCommand=sendCommand;
-    	
+    	this.totalSentCommand=totalSentCommand;
     	commandMap.put(BankConstants.SEND, this.sendCommand);
+    	commandMap.put(BankConstants.TOTAL_SENT, this.totalSentCommand);
     }
 	
 	
